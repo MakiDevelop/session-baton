@@ -4,7 +4,7 @@ import json
 import sqlite3
 from pathlib import Path
 
-from src.models import dump_json, utc_now_iso
+from session_baton.models import dump_json, utc_now_iso
 
 DEFAULT_DB_PATH = Path("data/baton.sqlite3")
 

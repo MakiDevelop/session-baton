@@ -14,13 +14,13 @@ from pathlib import Path
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
 
-from src.models import (
+from session_baton.models import (
     BatonReadRequest,
     BatonReadResponse,
     BatonWriteRequest,
     BatonWriteResponse,
 )
-from src.storage import BatonStore
+from session_baton.storage import BatonStore
 
 API_TOKEN = os.environ.get("BATON_API_TOKEN", "")
 DB_PATH = Path(os.environ.get("BATON_DB_PATH", "data/baton.sqlite3"))
@@ -81,4 +81,4 @@ async def write_baton(payload: BatonWriteRequest, request: Request) -> BatonWrit
 if __name__ == "__main__":
     import uvicorn
 
-    uvicorn.run("src.server:app", host=HOST, port=PORT, reload=True)
+    uvicorn.run("session_baton.server:app", host=HOST, port=PORT, reload=True)
