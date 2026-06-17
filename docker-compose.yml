@@ -1,0 +1,12 @@
+services:
+  session-baton:
+    build: .
+    ports:
+      - "9101:9101"
+    environment:
+      BATON_HOST: "0.0.0.0"
+      BATON_PORT: "9101"
+      BATON_DB_PATH: /data/baton.sqlite3
+      BATON_API_TOKEN: ${BATON_API_TOKEN:-}
+    volumes:
+      - ./data:/data
